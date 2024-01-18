@@ -28,7 +28,7 @@ const ProductListing = () => {
   }, []);
 
   useEffect(() => {
-    if (categories.length > 0) {
+    if (categories?.length > 0) {
       setTopLevelCategories(findTopLevelCategories(categories));
       if (topLevelCategories.length > 0) {
         get_product_count(topLevelCategories).then((data) => {
@@ -61,13 +61,13 @@ const ProductListing = () => {
           className="block w-full p-2 mt-1 border rounded-md"
         >
           <option value="">All Categories</option>
-          {topLevelCategories.map((category) => (
+          {topLevelCategories?.map((category) => (
             <option
               className="font-bold"
               key={category.categoryId}
               value={category.categoryId}
             >
-              {category.categoryName}
+              {category?.categoryName}
               <span className="text-red-600 font-bold">
                 ( {category.productCount} )
               </span>
